@@ -1,4 +1,4 @@
-/* Базовые стили для всех элементов */
+ /* Базовые стили для всех элементов */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -48,21 +48,22 @@ ul, ol {
 .content {
   display: grid;
   grid-template-columns: 711px 399px;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr; /* Автоматическая высота первой строки и растягивание второй */
   grid-template-areas:
     "result details"
     "result details";
   gap: 30px;
   inline-size: 100%;
-  block-size: 532px;
+  height: 100%; /* Занимаем всю доступную высоту */
 }
-
 /* Секция с результатами */
 .result {
   grid-area: result;
   display: flex;
   flex-direction: column;
-  margin-top: 77px;
+  /* УДАЛИТЬ margin-top: 410px; */
+  gap: 16px;
+  margin-top: 80px;
 }
 
 .result__video-container {
@@ -70,6 +71,7 @@ ul, ol {
   inline-size: 100%;
   block-size: 386px;
   margin-block-end: 16px;
+  margin-bottom: 1px;
 }
 
 .result__video {
@@ -84,7 +86,6 @@ ul, ol {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 40px;
 }
 
 .search-form__fieldset {
@@ -113,14 +114,14 @@ ul, ol {
   min-inline-size: 225px;
   block-size: 27px;
   border: none;
-  border-block-start: 1px solid currentColor;
-  border-block-end: 1px solid currentColor;
+  border-block-start: 1px solid #FFFFFF;
+  border-block-end: 1px solid #FFFFFF;
   background-color: transparent;
   color: rgba(255, 255, 255, 0.7);
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   appearance: none;
-  padding: 0;
+  padding-top: 0;
   outline: none;
 }
 
@@ -170,6 +171,7 @@ ul, ol {
 
 /* Кнопки */
 .button {
+  font-weight: 700;
   background-color: transparent;
   border: 1px solid #fff;
   color: #fff;
@@ -179,6 +181,7 @@ ul, ol {
   padding: 6px 0;
   min-inline-size: 194px;
   text-align: center;
+  
 }
 
 .button:focus {
@@ -215,6 +218,7 @@ ul, ol {
   grid-area: details;
   display: flex;
   flex-direction: column;
+  height: 100%; /* Занимаем всю доступную высоту */
 }
 
 .title {
@@ -235,18 +239,17 @@ ul, ol {
   position: relative;
   flex-grow: 1;
   overflow-y: auto;
-  padding-bottom: 1px;
-  overflow-x: hidden;
-  
+  max-height: 298px; /* Рассчитанное значение для ограничения скролла */
+  min-height: 0; /* Критически важно */
+  margin-top: 1px; /* Отступ от заголовка */
 }
 
 .content__list {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding-bottom: 37px;
+  padding-bottom: 37px; /* Оставить достаточно места для скролла */
   padding-right: 2px;
-  
 }
 
 /* Стили карточек */
@@ -366,4 +369,3 @@ ul, ol {
 .content__list-container::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
 }
-
