@@ -8,20 +8,21 @@ html {
   block-size: 100%;
 }
 
-/* Основные стили страницы */
+
 .page {
   display: flex;
   justify-content: center;
   align-items: center;
-  inline-size: 100%;
-  max-inline-size: 1200px;
-  block-size: 100%;
-  margin: auto;
+  min-height: 100vh; 
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   padding: 133px 30px;
+  box-sizing: border-box; 
 }
 
 /* Сброс стилей */
@@ -48,20 +49,19 @@ ul, ol {
 .content {
   display: grid;
   grid-template-columns: 711px 399px;
-  grid-template-rows: auto 1fr; /* Автоматическая высота первой строки и растягивание второй */
+  grid-template-rows: auto;
   grid-template-areas:
     "result details"
     "result details";
   gap: 30px;
-  inline-size: 100%;
-  height: 100%; /* Занимаем всю доступную высоту */
+  width: 100%;
+  
 }
 /* Секция с результатами */
 .result {
   grid-area: result;
   display: flex;
   flex-direction: column;
-  /* УДАЛИТЬ margin-top: 410px; */
   gap: 16px;
   margin-top: 80px;
 }
@@ -206,11 +206,10 @@ ul, ol {
 }
 
 .more-button {
-  width: calc(100% - 6px); /* Учитываем горизонтальные отступы */
+  width: calc(100% - 6px); 
   height: inherit;
   box-sizing: border-box;
-  margin: 0 3px; /* Такие же отступы, как у карточек (3px слева/справа) */
-  /* Компенсация вертикального положения */
+  margin: 0 3px; 
 }
 
 /* Детали */
@@ -218,7 +217,7 @@ ul, ol {
   grid-area: details;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Занимаем всю доступную высоту */
+  height: 100%; 
 }
 
 .title {
@@ -239,20 +238,20 @@ ul, ol {
   position: relative;
   flex-grow: 1;
   overflow-y: auto;
-  max-height: 298px; /* Рассчитанное значение для ограничения скролла */
-  min-height: 0; /* Критически важно */
-  margin-top: 1px; /* Отступ от заголовка */
+  max-height: 298px; 
+  min-height: 0; 
+  margin-top: 1px; 
 }
 
 .content__list {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding-bottom: 37px; /* Оставить достаточно места для скролла */
+  padding-bottom: 37px; 
   padding-right: 2px;
 }
 
-/* Стили карточек */
+
 .content__list-item {
   block-size: 100px;
   
